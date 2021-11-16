@@ -1,14 +1,14 @@
 const router = require('express').Router()
 const mongo = require('mongoose')
-const Blog = require('../Models/Blog')
+const Chef = require('../Models/Chef')
 
 mongo.connect(process.env.mongo_conn,{useNewUrlParser: true,useUnifiedTopology: true })
 
 router.get("/get",async (req,res)=>{
     try{
 
-        const blogData = await Blog.find();
-        res.send(blogData);
+        const chefData = await Chef.find();
+        res.send(chefData);
 
     }catch(err){
         res.send(err);
@@ -18,13 +18,13 @@ router.get("/get",async (req,res)=>{
 router.get("/get/:id",async (req,res)=>{
     try{
         const _id = req.params.id;
-        const blogData = await Blog.findById(_id);
+        const chefData = await Chef.findById(_id);
 
         if(!_id){
             return res.status(400).send();
         }
 
-        res.send(blogData);
+        res.send(chefData);
 
     }catch(err){
         res.send(err);
@@ -34,11 +34,11 @@ router.get("/get/:id",async (req,res)=>{
 router.post("/insert",async (req,res)=>{
 
     try{
-        const newblog = new Blog(req.body);
+        const newchef = new Chef(req.body);
 
-        const saveBlog = await newblog.save();
+        const saveChef = await newchef.save();
 
-        res.send(saveBlog);
+        res.send(saveChef);
 
     }catch(err){
         res.send(err);
@@ -49,11 +49,11 @@ router.post("/insert",async (req,res)=>{
 router.patch("/update/:id",async(req,res)=>{
     try{
         const _id = req.params.id;
-        const updateBlog = await Blog.findByIdAndUpdate(_id,req.body,{
+        const updateChef = await Chef.findByIdAndUpdate(_id,req.body,{
             new :true
         })
 
-        res.send(updateBlog);
+        res.send(updateChef);
     }
     catch(err){
         res.status(400).send(err);
@@ -64,13 +64,13 @@ router.patch("/update/:id",async(req,res)=>{
 router.delete("/delete/:id",async(req,res)=>{
     try{
         const _id  = req.params.id;
-        const deleteBlog = await Blog.findByIdAndDelete(_id);
+        const deleteChef = await Chef.findByIdAndDelete(_id);
         
         if(!_id){
             return res.status(400).send();
         }
         
-        res.send(deleteBlog);
+        res.send(deleteChef);
 
     }catch(err){
         res.send(err);

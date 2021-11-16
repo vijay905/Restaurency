@@ -1,14 +1,14 @@
 const router = require('express').Router()
 const mongo = require('mongoose')
-const Blog = require('../Models/Blog')
+const Menu = require('../Models/Menu')
 
 mongo.connect(process.env.mongo_conn,{useNewUrlParser: true,useUnifiedTopology: true })
 
 router.get("/get",async (req,res)=>{
     try{
 
-        const blogData = await Blog.find();
-        res.send(blogData);
+        const menuData = await Menu.find();
+        res.send(menuData);
 
     }catch(err){
         res.send(err);
@@ -18,13 +18,13 @@ router.get("/get",async (req,res)=>{
 router.get("/get/:id",async (req,res)=>{
     try{
         const _id = req.params.id;
-        const blogData = await Blog.findById(_id);
+        const menuData = await Menu.findById(_id);
 
         if(!_id){
             return res.status(400).send();
         }
 
-        res.send(blogData);
+        res.send(menuData);
 
     }catch(err){
         res.send(err);
@@ -34,11 +34,11 @@ router.get("/get/:id",async (req,res)=>{
 router.post("/insert",async (req,res)=>{
 
     try{
-        const newblog = new Blog(req.body);
+        const newmenu = new Menu(req.body);
 
-        const saveBlog = await newblog.save();
+        const saveMenu = await newmenu.save();
 
-        res.send(saveBlog);
+        res.send(saveMenu);
 
     }catch(err){
         res.send(err);
@@ -49,11 +49,11 @@ router.post("/insert",async (req,res)=>{
 router.patch("/update/:id",async(req,res)=>{
     try{
         const _id = req.params.id;
-        const updateBlog = await Blog.findByIdAndUpdate(_id,req.body,{
+        const updateMenu = await Menu.findByIdAndUpdate(_id,req.body,{
             new :true
         })
 
-        res.send(updateBlog);
+        res.send(updateMenu);
     }
     catch(err){
         res.status(400).send(err);
@@ -64,13 +64,13 @@ router.patch("/update/:id",async(req,res)=>{
 router.delete("/delete/:id",async(req,res)=>{
     try{
         const _id  = req.params.id;
-        const deleteBlog = await Blog.findByIdAndDelete(_id);
+        const deleteMenu = await Menu.findByIdAndDelete(_id);
         
         if(!_id){
             return res.status(400).send();
         }
         
-        res.send(deleteBlog);
+        res.send(deleteMenu);
 
     }catch(err){
         res.send(err);
