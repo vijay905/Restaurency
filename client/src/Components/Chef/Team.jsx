@@ -1,25 +1,29 @@
 import React from 'react'
+import Chef from './Chef'
 import "../../../node_modules/bootstrap/dist/css/bootstrap.min.css"
 
-
-import Chef from './Chef'
 
 const Team = () => {
     return (
         <>
-            <div className="team">
-                <div className="container">
-                    <div className="section-header text-center">
-                        <p>Our Team</p>
-                        <h3>Our Master Chef</h3>
-                    </div>
-                    <div className="row">
-                        <Chef />
-                        <Chef />
-
-                    </div>
-                </div>
-            </div>
+    <div className="team">
+        <div className="container">
+          <div className="section-header text-center">
+            <p>Our Team</p>
+            <h2>Our Master Chef</h2>
+          </div>
+          <div className="row">
+                <Chef/>
+                <Chef/>
+                <Chef/>
+                <Chef/>
+                <Chef/>
+                <Chef/>
+                <Chef/>
+                <Chef/>
+          </div>
+        </div>
+      </div>
 
         </>
     )
