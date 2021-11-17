@@ -1,7 +1,19 @@
-import React from "react";
+import React, {useEffect} from "react";
+import Axios from "axios";
 
 const BlogCard = ()=>{
-    return(
+  
+  useEffect(()=>{
+
+    Axios.get("http://localhost:7000/Blog/get").then((result)=>{
+        console.log(result);
+    }).catch((err)=>{
+      console.log(err);
+    })
+
+  },[])
+  
+  return(
         <>
          <div className="col-md-6">
               <div className="blog-item">

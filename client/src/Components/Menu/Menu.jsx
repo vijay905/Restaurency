@@ -1,15 +1,10 @@
 import React from 'react'
+import Tab from './Tab';
+import Item from './Item'
 
 const Menu = () => {
     return (
         <div>
-           
-           
-
-
-
-
-
            <div className="menu">
         <div className="container">
           <div className="section-header text-center">
@@ -18,30 +13,22 @@ const Menu = () => {
           </div>
           <div className="menu-tab">
             <ul className="nav nav-pills justify-content-center">
-              <li className="nav-item">
-                <a className="nav-link active" data-toggle="pill" href="#burgers">Burgers</a>
-              </li>
-              <li className="nav-item">
+              <Tab/>
+              <Tab/>
+              <Tab/>
+              {/* <li className="nav-item">
                 <a className="nav-link" data-toggle="pill" href="#snacks">Snacks</a>
               </li>
               <li className="nav-item">
                 <a className="nav-link" data-toggle="pill" href="#beverages">Beverages</a>
-              </li>
+              </li> */}
             </ul>
             <div className="tab-content">
               <div id="burgers" className="container tab-pane active">
                 <div className="row">
                   <div className="col-lg-7 col-md-12">
-                    <div className="menu-item">
-                      <div className="menu-img">
-                        <img src="img/menu-burger.jpg" alt="Image" />
-                      </div>
-                      <div className="menu-text">
-                        <h3><span>Mini cheese Burger</span> <strong>$9.00</strong></h3>
-                        <p>Lorem ipsum dolor sit amet elit. Phasel nec preti facil</p>
-                      </div>
-                    </div>
-                    <div className="menu-item">
+                   
+                    {/* <div className="menu-item">
                       <div className="menu-img">
                         <img src="img/menu-burger.jpg" alt="Image" />
                       </div>
@@ -49,34 +36,15 @@ const Menu = () => {
                         <h3><span>Double size burger</span> <strong>$11.00</strong></h3>
                         <p>Lorem ipsum dolor sit amet elit. Phasel nec preti facil</p>
                       </div>
-                    </div>
-                    <div className="menu-item">
-                      <div className="menu-img">
-                        <img src="img/menu-burger.jpg" alt="Image" />
-                      </div>
-                      <div className="menu-text">
-                        <h3><span>Bacon, EGG and Cheese</span> <strong>$13.00</strong></h3>
-                        <p>Lorem ipsum dolor sit amet elit. Phasel nec preti facil</p>
-                      </div>
-                    </div>
-                    <div className="menu-item">
-                      <div className="menu-img">
-                        <img src="img/menu-burger.jpg" alt="Image" />
-                      </div>
-                      <div className="menu-text">
-                        <h3><span>Pulled porx Burger</span> <strong>$18.00</strong></h3>
-                        <p>Lorem ipsum dolor sit amet elit. Phasel nec preti facil</p>
-                      </div>
-                    </div>
-                    <div className="menu-item">
-                      <div className="menu-img">
-                        <img src="img/menu-burger.jpg" alt="Image" />
-                      </div>
-                      <div className="menu-text">
-                        <h3><span>Fried chicken Burger</span> <strong>$22.00</strong></h3>
-                        <p>Lorem ipsum dolor sit amet elit. Phasel nec preti facil</p>
-                      </div>
-                    </div>
+                    </div> */}
+
+                    <Item/>
+                    <Item/>
+                    <Item/>
+                    <Item/>
+                    <Item/>
+                    <Item/>
+                    
                   </div>
                   <div className="col-lg-5 d-none d-lg-block">
                     <img src="img/menu-burger-img.jpg" alt="Image" />
