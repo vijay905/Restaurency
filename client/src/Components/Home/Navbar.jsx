@@ -19,17 +19,17 @@ const Navbar = ()=>{
              <Link to = "/"> <a href="#" className="nav-item nav-link">Home</a></Link>
               <Link to = "/about"><a href="#" className="nav-item nav-link">About</a></Link>
               <Link to = "/chef"><a href="#" className="nav-item nav-link">Chef</a></Link>
-              <a href="menu.html" className="nav-item nav-link">Menu</a>
+              <Link to = "/menu"><a href="#" className="nav-item nav-link">Menu</a></Link>
               <a href="booking.html" className="nav-item nav-link">Booking</a>
               <div className="nav-item dropdown">
-                <a href="#" className="nav-link dropdown-toggle" data-toggle="dropdown">Pages</a>
+               
                 <div className="dropdown-menu">
                   <a href="blog.html" className="dropdown-item">Blog Grid</a>
                   <a href="single.html" className="dropdown-item">Blog Detail</a>
                 </div>
               </div>
               <Link to = "/contact"><a href="#" className="nav-item nav-link">Contact</a></Link>
-              <Link to = "/contact"><a href="#" className="nav-item nav-link">User</a></Link>
+              <Link to = "/signup"><a href="#" className="nav-item nav-link">Sign up</a></Link>
               
             </div>
           </div>

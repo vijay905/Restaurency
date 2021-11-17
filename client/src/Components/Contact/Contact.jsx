@@ -3,6 +3,24 @@ import React from "react";
 const Contact = ()=>{
     return(
         <>
+
+
+<div class="page-header mb-0">
+            <div class="container">
+                <div class="row">
+                    <div class="col-12">
+                        <h2>Contact Us</h2>
+                    </div>
+                    <div class="col-12">
+                        <a href="">Home</a>
+                        <a href="">Contact Us</a>
+                    </div>
+                </div>
+            </div>
+        </div>
+
+
+
              <div className="contact">
         <div className="container">
           <div className="section-header text-center">
