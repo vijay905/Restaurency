@@ -8,9 +8,9 @@ const Home = ()=>{
     return(
         <>
         <Carosouel></Carosouel>
-        <Booking></Booking>
+        {/* <Booking></Booking> */}
         <Blog></Blog>
-        <Footer></Footer>
+        {/* <Footer></Footer> */}
         </>
     )
 }

@@ -12,6 +12,24 @@ const Booking = ()=>{
 
     return(
         <>
+
+<div class="page-header mb-3">
+            <div class="container">
+                <div class="row">
+                    <div class="col-12">
+                        <h2>Booking Table</h2>
+                    </div>
+                    <div class="col-12">
+                        <a href="">Home</a>
+                        <a href="">Booking</a>
+                    </div>
+                </div>
+            </div>
+        </div>
+
+
+
+
          <div className="booking">
         <div className="container">
           <div className="row align-items-center">

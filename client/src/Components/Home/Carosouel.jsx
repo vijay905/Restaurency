@@ -1,6 +1,9 @@
 import React from "react";
 import './Home.css'
 
+import homepage from './homepage.jpg'
+import {Link} from 'react-router-dom'
+
 
 const Carosouel = ()=>{
 
@@ -11,7 +14,7 @@ const Carosouel = ()=>{
           <div className="owl-carousel">
             <div className="carousel-item">
               <div className="carousel-img">
-                <img src="img/carousel-1.jpg" alt="Image" />
+                <img src={homepage} alt="Image" />
               </div>
               <div className="carousel-text">
                 <h1>Best <span>Quality</span> Ingredients</h1>
@@ -19,38 +22,8 @@ const Carosouel = ()=>{
                   Lorem ipsum dolor sit amet elit. Phasellus ut mollis mauris. Vivamus egestas eleifend dui ac consequat at lectus in malesuada
                 </p>
                 <div className="carousel-btn">
-                  <a className="btn custom-btn" href>View Menu</a>
-                  <a className="btn custom-btn" href>Book Table</a>
-                </div>
-              </div>
-            </div>
-            <div className="carousel-item">
-              <div className="carousel-img">
-                <img src="img/carousel-2.jpg" alt="Image" />
-              </div>
-              <div className="carousel-text">
-                <h1>World’s <span>Best</span> Chef</h1>
-                <p>
-                  Morbi sagittis turpis id suscipit feugiat. Suspendisse eu augue urna. Morbi sagittis, orci sodales varius fermentum, tortor
-                </p>
-                <div className="carousel-btn">
-                  <a className="btn custom-btn" href>View Menu</a>
-                  <a className="btn custom-btn" href>Book Table</a>
-                </div>
-              </div>
-            </div>
-            <div className="carousel-item">
-              <div className="carousel-img">
-                <img src="img/carousel-3.jpg" alt="Image" />
-              </div>
-              <div className="carousel-text">
-                <h1>Fastest Order <span>Delivery</span></h1>
-                <p>
-                  Sed ultrices, est eget feugiat accumsan, dui nibh egestas tortor, ut rhoncus nibh ligula euismod quam. Proin pellentesque odio
-                </p>
-                <div className="carousel-btn">
-                  <a className="btn custom-btn" href>View Menu</a>
-                  <a className="btn custom-btn" href>Book Table</a>
+                  <a className="btn custom-btn" href><Link to = "/menu"><a href="#" className="nav-item nav-link">View Menu</a></Link></a>
+                  <a className="btn custom-btn" href><Link to = "/menu"><a href="#" className="nav-item nav-link">Book Table</a></Link></a>
                 </div>
               </div>
             </div>
