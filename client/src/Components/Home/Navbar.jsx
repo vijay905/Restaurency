@@ -18,7 +18,7 @@ const Navbar = ()=>{
             <span style = {{width: "32vw"}}></span>
              <Link to = "/"> <a href="#" className="nav-item nav-link">Home</a></Link>
               <Link to = "/about"><a href="#" className="nav-item nav-link">About</a></Link>
-              <a href="team.html" className="nav-item nav-link">Chef</a>
+              <Link to = "/chef"><a href="#" className="nav-item nav-link">Chef</a></Link>
               <a href="menu.html" className="nav-item nav-link">Menu</a>
               <a href="booking.html" className="nav-item nav-link">Booking</a>
               <div className="nav-item dropdown">
@@ -30,6 +30,7 @@ const Navbar = ()=>{
               </div>
               <Link to = "/contact"><a href="#" className="nav-item nav-link">Contact</a></Link>
               <Link to = "/contact"><a href="#" className="nav-item nav-link">User</a></Link>
+              
             </div>
           </div>
         </div>

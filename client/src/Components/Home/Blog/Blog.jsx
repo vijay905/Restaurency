@@ -4,7 +4,7 @@ import BlogCard from "./BlogCard";
 const Blog = ()=>{
     return(
         <>
-                  <div className="blog">
+      <div className="blog">
         <div className="container">
           <div className="section-header text-center">
             <p>Food Blog</p>
