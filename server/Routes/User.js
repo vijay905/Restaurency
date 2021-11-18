@@ -9,18 +9,14 @@ mongo.connect(process.env.mongo_conn,{useNewUrlParser: true,useUnifiedTopology: 
 router.post('/register',async (req,res)=>{
     
     try{
-        const fname = req.body.fname;
-        const lname = req.body.lname;
-        const username = req.body.username;
+        const name = req.body.name;
         const email = req.body.email;
         const password = req.body.password;
         const confirmpassword = req.body.confirmPassword;
     
     if(password === confirmpassword){
         const RegisterUser = new User({
-            firstname:fname,
-            lastname:lname,
-            username:username,
+            name:name,
             email:email,
             password:password,
             confirm_password:confirmpassword
