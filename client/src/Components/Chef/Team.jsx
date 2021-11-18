@@ -1,9 +1,22 @@
-import React from 'react'
+import React,{useState,useEffect} from 'react'
+import Axios from 'axios'
 import Chef from './Chef'
+import { Link } from 'react-router-dom'
 import "../../../node_modules/bootstrap/dist/css/bootstrap.min.css"
 
 
 const Team = () => {
+
+    const [chefData,setChefData] = useState([]);
+
+  useEffect(() => {
+    Axios.get("http://localhost:7000/Chef/get").then((result)=>{
+      setChefData(result.data);
+    }).catch((err)=>{
+      console.log(err);
+    })
+  }, []);
+
     return (
         <>
 
@@ -15,8 +28,9 @@ const Team = () => {
                         <h2>Chef</h2>
                     </div>
                     <div class="col-12">
-                        <a href="">Home</a>
-                        <a href="">Chef</a>
+                        <Link to = "/"><a href="#" >Home</a></Link>
+                        <Link to = "/about"><a href="#" >Chef</a></Link>
+                        
                     </div>
                 </div>
             </div>
@@ -32,14 +46,13 @@ const Team = () => {
             <h2>Our Master Chef</h2>
           </div>
           <div className="row">
-                <Chef/>
-                <Chef/>
-                <Chef/>
-                <Chef/>
-                <Chef/>
-                <Chef/>
-                <Chef/>
-                <Chef/>
+
+            {chefData.map((val)=>{
+                return(
+                    <Chef name = {val.name} desig = {val.designation}  img = {val.photo}/>
+                )
+            })}
+                
           </div>
         </div>
       </div>

@@ -1,20 +1,9 @@
-import React, { useEffect } from 'react'
-import team3 from './team-3.jpg'
+import React, { useEffect,useState } from 'react'
 import Axios from 'axios'
-import {FaFacebookSquare, FaLinkedin, FaInstagramSquare, FaGithubSquare } from "react-icons/fa";
+import { Link } from 'react-router-dom';
 
 
-const Chef = () => {
-  
-  useEffect(()=>{
-    
-    Axios.get("http://localhost:7000/Chef/get").then((result)=>{
-      console.log(result);
-    }).catch((err)=>{
-      console.log(err);
-    })
-
-  },[]);
+const Chef=(props) => {
   
   return (
         <>
@@ -22,16 +11,16 @@ const Chef = () => {
 <div className="col-lg-3 col-md-6">
               <div className="team-item">
                 <div className="team-img">
-                  <img src="img/team-1.jpg" alt="Image" />
+                  <img src={props.img} style = {{width: "22rem",height: "15rem"}} alt="Image" />
                   <div className="team-social">
-                    <a href><i className="fab fa-twitter" style={{color:'#fff'}}></i></a>
-                    <a href><i className="fab fa-facebook" style={{color:'#fff'}}></i></a>
-                    <a href><i className="fab fa-instagram" style={{color:'#fff'}}/></a>
+                    <Link to = "#"><i className="fab fa-twitter" style={{color:'#fff'}}></i></Link>
+                    <Link to = "#"><i className="fab fa-facebook" style={{color:'#fff'}}></i></Link>
+                    <Link to = "#"><i className="fab fa-instagram" style={{color:'#fff'}}/></Link>
                   </div>
                 </div>
                 <div className="team-text">
-                  <h2>Adam Phillips</h2>
-                  <p>CEO, Co Founder</p>
+                  <h2>{props.name}</h2>
+                  <p>{props.desig}</p>
                 </div>
               </div>
             </div>
