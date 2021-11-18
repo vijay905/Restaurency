@@ -22,8 +22,8 @@ const Carosouel = ()=>{
                   Lorem ipsum dolor sit amet elit. Phasellus ut mollis mauris. Vivamus egestas eleifend dui ac consequat at lectus in malesuada
                 </p>
                 <div className="carousel-btn">
-                  <a className="btn custom-btn" href><Link to = "/menu"><a href="#" className="nav-item nav-link">View Menu</a></Link></a>
-                  <a className="btn custom-btn" href><Link to = "/menu"><a href="#" className="nav-item nav-link">Book Table</a></Link></a>
+                  <a className="btn custom-btn"  href><Link to = "/menu" style = {{textDecoration: "none"}}><a href="#" className="nav-item nav-link"><span style = {{color:"whitesmoke"}}>View Menu</span></a></Link></a>
+                  <a className="btn custom-btn" href><Link to = "/menu" style = {{textDecoration: "none"}}><a href="#" className="nav-item nav-link"><span style = {{color:"whitesmoke"}}>Book Table</span></a></Link></a>
                 </div>
               </div>
             </div>

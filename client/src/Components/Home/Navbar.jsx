@@ -6,7 +6,7 @@ import "../../../node_modules/bootstrap/dist/css/bootstrap.min.css"
 const Navbar = ()=>{
     return(
         <>
-       <div className="navbar navbar-expand-lg bg-light navbar-light">
+       <div className="navbar navbar-expand-lg bg-light navbar-light" style = {{position:"sticky",top:"0"}}>
         <div className="container-fluid">
           <a href="index.html" className="navbar-brand">Restau<span>rancy</span></a>
           <button type="button" className="navbar-toggler" data-toggle="collapse" data-target="#navbarCollapse">
@@ -16,11 +16,11 @@ const Navbar = ()=>{
           <div className="collapse navbar-collapse justify-content-between" id="navbarCollapse" >
             <div className="navbar-nav ml-auto" >
             <span style = {{width: "32vw"}}></span>
-             <Link to = "/"> <a href="#" className="nav-item nav-link">Home</a></Link>
-              <Link to = "/about"><a href="#" className="nav-item nav-link">About</a></Link>
-              <Link to = "/chef"><a href="#" className="nav-item nav-link">Chef</a></Link>
-              <Link to = "/menu"><a href="#" className="nav-item nav-link">Menu</a></Link>
-              <Link to = "/booking"><a href="#" className="nav-item nav-link">Booking</a></Link>
+             <Link to = "/" style = {{textDecoration:"none"}}> <a href="#" className="nav-item nav-link">Home</a></Link>
+              <Link to = "/about" style = {{textDecoration:"none"}}><a href="#" className="nav-item nav-link">About</a></Link>
+              <Link to = "/chef" style = {{textDecoration:"none"}}><a href="#" className="nav-item nav-link">Chef</a></Link>
+              <Link to = "/menu" style = {{textDecoration:"none"}}><a href="#" className="nav-item nav-link">Menu</a></Link>
+              <Link to = "/booking" style = {{textDecoration:"none"}}><a href="#" className="nav-item nav-link">Booking</a></Link>
 
     
               <div className="nav-item dropdown">
