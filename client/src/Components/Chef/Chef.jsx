@@ -24,10 +24,9 @@ const Chef = () => {
                 <div className="team-img">
                   <img src="img/team-1.jpg" alt="Image" />
                   <div className="team-social">
-                    <a href><i class="fab fa-twitter"></i></a>
-                    <a href><FaFacebookSquare /></a>
-                    <a href><i className="fab fa-linkedin-in" /></a>
-                    <a href><i className="fab fa-instagram" /></a>
+                    <a href><i className="fab fa-twitter" style={{color:'#fff'}}></i></a>
+                    <a href><i className="fab fa-facebook" style={{color:'#fff'}}></i></a>
+                    <a href><i className="fab fa-instagram" style={{color:'#fff'}}/></a>
                   </div>
                 </div>
                 <div className="team-text">
