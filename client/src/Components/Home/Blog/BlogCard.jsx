@@ -1,38 +1,29 @@
-import React, {useEffect} from "react";
-import Axios from "axios";
+import React from "react";
 
-const BlogCard = ()=>{
-  
-  useEffect(()=>{
 
-    Axios.get("http://localhost:7000/Blog/get").then((result)=>{
-        console.log(result);
-    }).catch((err)=>{
-      console.log(err);
-    })
 
-  },[])
-  
+const BlogCard = (props)=>{
+    
   return(
         <>
          <div className="col-md-6">
               <div className="blog-item">
-                <div className="blog-img">
-                  <img src="img/blog-1.jpg" alt="Blog" />
+                <div className="blog-img" style = {{width:"540px",height:"360px"}}>
+                  <img src={props.img}  alt="Blog" />
                 </div>
                 <div className="blog-content">
-                  <h2 className="blog-title">Lorem ipsum dolor sit amet</h2>
+                  <h2 className="blog-title">{props.title}</h2>
                   <div className="blog-meta">
-                    <p><i className="far fa-user" />Admin</p>
-                    <p><i className="far fa-list-alt" />Food</p>
-                    <p><i className="far fa-calendar-alt" />01-Jan-2045</p>
+                    <p><i className="far fa-user" />{props.designer}</p>
+                    <p><i className="far fa-list-alt" />{props.type}</p>
+                    <p><i className="far fa-calendar-alt" />{props.date}</p>
                     <p><i className="far fa-comments" />10</p>
                   </div>
                   <div className="blog-text">
                     <p>
-                      Lorem ipsum dolor sit amet elit. Neca pretim miura bitur facili ornare velit non vulpte liqum metus tortor. Lorem ipsum dolor sit amet elit. Neca pretim miura bitur facili ornare velit non vulpte
+                     {props.desc}
                     </p>
-                    <a className="btn custom-btn" href>Read More</a>
+                    <a className="btn custom-btn" href = {props.link} target = "_blank">Read More</a>
                   </div>
                 </div>
               </div>

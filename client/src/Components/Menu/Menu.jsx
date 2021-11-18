@@ -2,21 +2,7 @@ import React from 'react'
 import Tab from './Tab';
 import Item from './Item'
 
-const MenuItem = () => {
-  return (
-    <>
-      <div className="menu-item">
-        <div className="menu-img">
-          <img src="img/menu-snack.jpg" alt="Image" />
-        </div>
-        <div className="menu-text">
-          <h3><span>Corn Tikki - Spicy fried Aloo</span> <strong>$15.00</strong></h3>
-          <p>Lorem ipsum dolor sit amet elit. Phasel nec preti facil</p>
-        </div>
-      </div>
-    </>
-  )
-}
+
 
 const Menu = () => {
   return (
