@@ -9,7 +9,7 @@ import Menu from "./Components/Menu/Menu";
 import SignUp from "./Components/SignUp/SignUp";
 import SignIn from "./Components/SignIn/SignIn";
 import Booking from "./Components/Home/Booking";
-
+import Item from "./Components/Menu/Item";
 import Footer from "./Components/Home/Footer";
 
 
@@ -23,11 +23,12 @@ const App = ()=>{
         <Route path = "/about" element = {<About/>}/>
         <Route path = "/contact" element = {<Contact/>}/>
         <Route path = "/chef" element = {<Team />}/>
-        <Route path = "/menu" element = {<Menu />}/>
         <Route path = "/booking" element = {<Booking />}/>
         <Route path = "/signup" element = {<SignUp />}/>
         <Route path = "/signin" element = {<SignIn />}/>
-        
+        <Route exact path = "/menu" element = {<Menu Item = {<Item type = "south"/>}/>}/>
+        <Route path = "/menu/punjabi" element = {<Menu Item = {<Item type = "punjabi"/>}/>}></Route>
+        <Route path = "/menu/chinise" element = {<Menu Item = {<Item type = "chinise"/>}/>}></Route>
     </Routes>
     <Footer></Footer>
         

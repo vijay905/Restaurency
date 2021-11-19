@@ -10,11 +10,11 @@ const menuSchema = new mongoose.Schema({
         required:true
     },
     desc:{
-        type:Number,
+        type:String,
         required:true
     },
     price:{
-        type:Date,
+        type:String,
         required:true
     },
     img:{
