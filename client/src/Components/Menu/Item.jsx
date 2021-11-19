@@ -22,18 +22,21 @@ const Item = (props)=>{
                 <div className="row">
                   <div className="col-lg-7 col-md-12">
                     <div className="menu-item">
-                      <div className="menu-img">
-                        <img src="img/menu-burger.jpg" alt="Image" />
-                      </div>
+                      
 
                       {img.map((val)=>{
   if(props.type === "south"){
                           
                             return(
                               <>
+                              <div className="menu-item" >
+                                        <div className="menu-img" style = {{width:"80px"}}>
+                                            <img src="https://i.ndtvimg.com/i/2017-03/kadala-curry_620x350_51490966850.jpg" alt="Image" style = {{height:"80px"}}/>
+                                        </div>
                               <div className="menu-text">
                         <h3><span>Kadala Curry</span> <strong>Rs 75</strong></h3>
-                        <p>Lorem ipsum dolor sit amet elit. Phasel nec preti facil</p>
+                        <p>Lorem ipsum dolor sit amet elit. Phasel nec preti facil Lorem ipsum dolor sit amet consectetur adipisicing elit. Ea, corporis.</p>
+                      </div>
                       </div>
                               </>
                             )
@@ -41,9 +44,14 @@ const Item = (props)=>{
     else if(props.type === "punjabi"){
       return(
                               <>
+                              <div className="menu-item">
+                                        <div className="menu-img"  style = {{width:"80px"}}>
+                                            <img src="https://www.whiskaffair.com/wp-content/uploads/2019/06/Tandoori-Roti-1-1.jpg" alt="Image"  style = {{height:"80px"}}/>
+                                        </div>
                               <div className="menu-text">
-                        <h3><span>Mini cheese Burger</span> <strong>$9.00</strong></h3>
-                        <p>Lorem ipsum dolor sit amet elit. Phasel nec preti facil</p>
+                        <h3><span>Tandoor Paratha</span> <strong>Rs 140</strong></h3>
+                        <p>Lorem ipsum dolor sit amet elit. Phasel nec preti facil Lorem ipsum dolor, sit amet consectetur adipisicing elit. Fugit, numquam.</p>
+                      </div>
                       </div>
                        </>
                             )
@@ -51,9 +59,14 @@ const Item = (props)=>{
     else if(props.type === "chinise"){
       return(
                               <>
+                              <div className="menu-item">
+                                        <div className="menu-img"  style = {{width:"80px"}}>
+                                            <img src="https://www.sanjeevkapoor.com/UploadFiles/RecipeImages/Veg-Triple-Schezwan-Rice-KhaanaKhazana.jpg" alt="Image"  style = {{height:"80px"}}/>
+                                        </div>
                               <div className="menu-text">
-                        <h3><span>Mini cheese Burger</span> <strong>$9.00</strong></h3>
-                        <p>Lorem ipsum dolor sit amet elit. Phasel nec preti facil</p>
+                        <h3><span>Triple Rice</span> <strong>Rs 90</strong></h3>
+                        <p>Lorem ipsum dolor sit amet elit. Phasel nec preti facil Lorem ipsum dolor sit amet consectetur, adipisicing elit. Nihil, optio.</p>
+                      </div>
                       </div>
                               </>
                             )

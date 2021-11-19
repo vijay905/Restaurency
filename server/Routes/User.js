@@ -12,14 +12,14 @@ router.post('/register',async (req,res)=>{
         const name = req.body.name;
         const email = req.body.email;
         const password = req.body.password;
-        const confirmpassword = req.body.confirmPassword;
+        const conpass = req.body.conpass;
     
-    if(password === confirmpassword){
+    if(password === conpass){
         const RegisterUser = new User({
             name:name,
             email:email,
             password:password,
-            confirm_password:confirmpassword
+            confirm_password:conpass
         })
 
         const token = await RegisterUser.generateAuthToken();
@@ -41,17 +41,15 @@ router.post("/login",async(req,res)=>{
     
     try{
         let token;
-        const username = req.body.userName;
-        const password = req.body.Password;
+        const email = req.body.email;
+        const password = req.body.password;
 
-        const dbuser = await User.findOne({username:username});
+        const dbuser = await User.findOne({email:email});
 
     if(dbuser){
         const isMatch = await bcrypt.compare(password,dbuser.password);
         token = await dbuser.generateAuthToken();
         
-        console.log(token);
-
         if(isMatch){
             res.status(200).send({dbuser,token});    
         }

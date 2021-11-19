@@ -6,8 +6,8 @@ import Contact from "./Components/Contact/Contact";
 import { Route, Switch, Routes} from "react-router"
 import Team from "./Components/Chef/Team";
 import Menu from "./Components/Menu/Menu";
-import SignUp from "./Components/SignUp/SignUp";
-import SignIn from "./Components/SignIn/SignIn";
+import SignUp from "./Components/login_registeration/SignUp";
+import SignIn from "./Components/login_registeration/SignIn";
 import Booking from "./Components/Home/Booking";
 import Item from "./Components/Menu/Item";
 import Footer from "./Components/Home/Footer";

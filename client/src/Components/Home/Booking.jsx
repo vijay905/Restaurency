@@ -1,5 +1,8 @@
 import React, { useState } from "react";
 import './Home.css'
+import Popup from '../login_registeration/Popup'
+import SignIn from "../login_registeration/SignIn";
+import SignUp from "../login_registeration/SignUp";
 
 const Booking = ()=>{
 
@@ -9,6 +12,70 @@ const Booking = ()=>{
   const [date,setDate] = useState("");
   const [time,setTime] = useState("");
   const [guest,setGuest] = useState("");
+  const [ltrigger,setltrigger] = useState(false);
+  const [rtrigger,setrtrigger] = useState(false);
+
+
+  const onBooking = (event)=>{
+    event.preventDefault();
+    
+    const token = localStorage.getItem('Token');
+    console.log(token);
+    
+    if(!token){ 
+      setltrigger(true);
+    }
+    else{
+
+        // const userId = localStorage.getItem("UserId");
+
+        // if(!userId){
+        //   setltrigger(true);
+        // }
+        // else{
+
+        //   Axios.get(`http://localhost:7000/User/course/get/${userId}/${url.slice(16,url.length)}`).then((result)=>{
+             
+        //       let course;
+              
+        //       course =  result.data.user.courses.map((val)=>{
+                
+        //        if(val.course == `${url.slice(16,url.length)}`){
+        //          return true;
+        //        }
+        //      })
+
+        //      for(let i = 0;i<course.length;i++){
+        //        if(course[i] == true){
+        //          setCourseEnroll(true);
+        //          break;
+        //        }
+        //      }
+
+             
+
+        //     if(!courseEnroll){
+        //       Axios.post("http://localhost:7000/User/course/insert",{
+        //         userId:userId,
+        //         courseId:url.slice(16,url.length)
+        //       }).then((result)=>{
+        //          setCourseEnroll(true);
+        //       }).catch((err)=>{
+        //         console.log(err);
+        //       })
+        //     }
+           
+        //     }).catch((err)=>{
+        //       console.log(err);
+        //     })
+
+
+          
+
+        }   
+    
+  }
+
 
     return(
         <>
@@ -132,14 +199,25 @@ const Booking = ()=>{
                     </div>
                   </div>
                   <div>
-                    <button className="btn custom-btn" type="submit">Book Now</button>
+                    <button className="btn custom-btn" type="submit" onClick = {onBooking}>Book Now</button>
                   </div>
                 </form>
               </div>
             </div>
           </div>
         </div>
+
+        <Popup trigger = {ltrigger} text = "Sign In" setTrigger = {setltrigger}>
+              <SignIn  setlogin = {setltrigger} setregister = {setrtrigger}></SignIn>
+          </Popup>
+
+          <Popup trigger = {rtrigger} text = "Sign Up" setTrigger = {setrtrigger}>
+              <SignUp  setlogin = {setltrigger} setregister = {setrtrigger}></SignUp>
+          </Popup>
+
       </div>
+
+
         </>
     )
 }

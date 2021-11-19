@@ -1,6 +1,6 @@
 import React from 'react'
 import './Popup.css'
-import CloseIcon from "@material-ui/icons/Close";
+// import CloseIcon from "@material-ui/icons/Close";
 
 
 const Popup = (props)=>{
@@ -12,12 +12,14 @@ const Popup = (props)=>{
             <div className="popup">
                 <div className="popup-inner">
                     <div style = {{display:"flex",alignItems:"center",justifyContent:"center"}}>
-                    <div className = "title" ><h1><b>{props.text}</b></h1></div>
+                    <div className = "title" ><h3><b>{props.text}</b></h3></div>
                     </div>
                    
                     <button className="close-btn" onClick = {(event)=>{
                      props.setTrigger(false);
-                    }}><CloseIcon fontSize = "large"/></button>
+                    }}>
+                    {/* <CloseIcon fontSize = "large"/> */}
+                    X</button>
                     {props.children}
                 </div>
             </div>

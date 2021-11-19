@@ -30,7 +30,7 @@ const Navbar = ()=>{
                   <a href="single.html" className="dropdown-item">Blog Detail</a>
                 </div>
               </div>
-              <Link to = "/contact"><a href="#" className="nav-item nav-link">Contact</a></Link>
+              <Link to = "/contact" style = {{textDecoration:"none"}}><a href="#" className="nav-item nav-link">Contact</a></Link>
               <Link to = "/signup"><a href="#" className="nav-item nav-link">Sign up</a></Link>
               <Link to = "/signin"><a href="#" className="nav-item nav-link">Sign in</a></Link>
               
