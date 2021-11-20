@@ -156,7 +156,7 @@ const Booking = ()=>{
                     </div>
                   </div>
                   <div className="control-group">
-                    <div className="input-group date" id="date" data-target-input="nearest">
+                    <div className="input-group date unstyled" id="date" data-target-input="nearest">
                       <input type="date" className="form-control datetimepicker-input" placeholder="Date" data-target="#date" data-toggle="datetimepicker" style={{textDecoration : 'none'}}
                       onChange = {(event)=>{
                           setDate(event.target.value);

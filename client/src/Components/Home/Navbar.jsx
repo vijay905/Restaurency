@@ -31,8 +31,13 @@ const Navbar = ()=>{
                 </div>
               </div>
               <Link to = "/contact" style = {{textDecoration:"none"}}><a href="#" className="nav-item nav-link">Contact</a></Link>
-              <Link to = "/signup"><a href="#" className="nav-item nav-link">Sign up</a></Link>
-              <Link to = "/signin"><a href="#" className="nav-item nav-link">Sign in</a></Link>
+              {/* <Link to = "/signup" style = {{textDecoration:"none"}}><a href="#" className="nav-item nav-link">Sign up</a></Link>
+              <Link to = "/signin" style = {{textDecoration:"none"}}><a href="#" className="nav-item nav-link">Sign in</a></Link> */}
+
+              <Link to = "/profile" style = {{textDecoration:"none"}}><a href="#" className="nav-item nav-link">Profile</a></Link>
+              <Link to = "" style = {{textDecoration:"none"}}><a href="#" className="nav-item nav-link">Logout</a></Link>
+
+
               
             </div>
           </div>

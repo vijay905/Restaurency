@@ -11,6 +11,7 @@ import SignIn from "./Components/login_registeration/SignIn";
 import Booking from "./Components/Home/Booking";
 import Item from "./Components/Menu/Item";
 import Footer from "./Components/Home/Footer";
+import  Profile from "./Components/Profile/Profile";
 
 
 const App = ()=>{
@@ -24,8 +25,9 @@ const App = ()=>{
         <Route path = "/contact" element = {<Contact/>}/>
         <Route path = "/chef" element = {<Team />}/>
         <Route path = "/booking" element = {<Booking />}/>
-        <Route path = "/signup" element = {<SignUp />}/>
-        <Route path = "/signin" element = {<SignIn />}/>
+        {/* <Route path = "/signup" element = {<SignUp />}/>
+        <Route path = "/signin" element = {<SignIn />}/> */}
+        <Route path = "/profile" element = {<Profile />}/>
         <Route exact path = "/menu" element = {<Menu Item = {<Item type = "south"/>}/>}/>
         <Route path = "/menu/punjabi" element = {<Menu Item = {<Item type = "punjabi"/>}/>}></Route>
         <Route path = "/menu/chinise" element = {<Menu Item = {<Item type = "chinise"/>}/>}></Route>
