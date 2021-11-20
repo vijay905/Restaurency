@@ -31,6 +31,7 @@ const App = ()=>{
         <Route exact path = "/menu" element = {<Menu Item = {<Item type = "south"/>}/>}/>
         <Route path = "/menu/punjabi" element = {<Menu Item = {<Item type = "punjabi"/>}/>}></Route>
         <Route path = "/menu/chinise" element = {<Menu Item = {<Item type = "chinise"/>}/>}></Route>
+        
     </Routes>
     <Footer></Footer>
         

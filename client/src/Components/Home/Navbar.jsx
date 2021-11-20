@@ -1,9 +1,31 @@
-import React from "react";
+import React, { useEffect, useState} from "react";
 import "./Home.css"
 import {Link} from 'react-router-dom'
 import "../../../node_modules/bootstrap/dist/css/bootstrap.min.css"
+import Popup from "../login_registeration/Popup";
+import SignIn from "../login_registeration/SignIn";
+import SignUp from "../login_registeration/SignUp";
+import { useNavigate } from 'react-router-dom';
+
+ 
 
 const Navbar = ()=>{
+
+  const [log,setLog] = useState(false);
+  const [ltrigger,setltrigger] = useState(false);
+  const [rtrigger,setrtrigger] = useState(false);
+ 
+  const navigate = useNavigate();
+
+  useEffect(()=>{
+    const token = localStorage.getItem('Token');
+
+    if(token){
+      setLog(true);
+    }
+
+  },[])
+
     return(
         <>
        <div className="navbar navbar-expand-lg bg-light navbar-light" style = {{position:"sticky",top:"0"}}>
@@ -34,15 +56,49 @@ const Navbar = ()=>{
               {/* <Link to = "/signup" style = {{textDecoration:"none"}}><a href="#" className="nav-item nav-link">Sign up</a></Link>
               <Link to = "/signin" style = {{textDecoration:"none"}}><a href="#" className="nav-item nav-link">Sign in</a></Link> */}
 
-              <Link to = "/profile" style = {{textDecoration:"none"}}><a href="#" className="nav-item nav-link">Profile</a></Link>
-              <Link to = "" style = {{textDecoration:"none"}}><a href="#" className="nav-item nav-link">Logout</a></Link>
+              
+              
+              {log ? 
+              <>
+                <Link to = "/profile" style = {{textDecoration:"none"}}><a href="#" className="nav-item nav-link">Profile</a></Link>
+                <Link to = "/" style = {{textDecoration:"none"}} onClick = {()=>{
+                  localStorage.removeItem("Token");
+                  localStorage.removeItem("UserId");
+                  alert("Logout Successful");
+                  navigate('/');
+                  window.location.reload(false);
+                }}><a href="#" className="nav-item nav-link">Logout</a></Link>
+                </>
+                : 
+                <>
+                <Link to = "#" onClick = {()=>{
+                   setltrigger(true);
+                }}
+                style = {{textDecoration:"none"}}><a href="#" className="nav-item nav-link">Profile</a></Link>
+                
+                <Link to = "#"  onClick = {()=>{
+                  setltrigger(true);
+                }} style = {{textDecoration:"none"}} ><a href="#" className="nav-item nav-link">Login</a></Link>
+                </>
+              }
+              
 
 
               
             </div>
           </div>
         </div>
+        <Popup trigger = {ltrigger} text = "Sign In" setTrigger = {setltrigger}>
+              <SignIn  setlogin = {setltrigger} setregister = {setrtrigger}></SignIn>
+          </Popup>
+
+          <Popup trigger = {rtrigger} text = "Sign Up" setTrigger = {setrtrigger}>
+              <SignUp  setlogin = {setltrigger} setregister = {setrtrigger}></SignUp>
+          </Popup>
       </div>
+
+      
+
     </>
     )
 }
