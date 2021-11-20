@@ -31,14 +31,127 @@ router.get("/get/:id",async (req,res)=>{
     }
 })
 
+router.get("/user/get/:userId",async(req,res)=>{
+try{
+
+    const userId  = req.params.userId;
+
+    const bookings = await Booking.find({user_Id:userId});
+
+    res.send(bookings);
+
+}catch(err){
+    res.status(400).send(err);
+}
+})
+
+router.get("/status/:date/:time",async(req,res)=>{
+    try{
+
+        let tables = 10;
+        let seats = 60;
+
+        const date = req.params.date;
+        const time = req.params.time;
+
+            const shours = time.slice(0,2);
+            const smin = time.slice(3,5);
+    
+            let hours = Number(shours);
+            let min = Number(smin);
+
+        const bookings = await Booking.find({date:date});
+
+        for(let i = 0;i<bookings.length;i++){
+            let sbhours = bookings[i].time.slice(0,2);
+            let sbmins = bookings[i].time.slice(3,5);
+
+            let bhours = Number(sbhours);
+            let bmins = Number(sbmins);
+
+            if(hours < bhours + 1 && hours > bhours - 1){
+                seats = seats - bookings[i].guests;
+                tables = Math.floor(seats/6);
+                
+        }
+
+
+        }
+
+        res.send({tables,seats});
+
+
+    }catch(err){
+        res.status(400).send(err);
+    }
+})
+
 router.post("/insert",async (req,res)=>{
 
     try{
-        const newbooking = new Booking(req.body);
 
-        const saveBooking = await newbooking.save();
+        const date = req.body.date;
+        const time = req.body.time;
 
-        res.send(saveBooking);
+        let tables = 10;
+        let seats = 60;
+
+        const shours = time.slice(0,2);
+        const smin = time.slice(3,5);
+
+        let hours = Number(shours);
+        let min = Number(smin);
+
+        let flag = true;
+
+        const bookings = await Booking.find({date:date});
+
+        for(let i = 0;i<bookings.length;i++){
+            let sbhours = bookings[i].time.slice(0,2);
+            let sbmins = bookings[i].time.slice(3,5);
+
+            let bhours = Number(sbhours);
+            let bmins = Number(sbmins);
+
+            if(hours < bhours + 1 && hours > bhours - 1){
+                seats = seats - bookings[i].guests;
+                tables = Math.floor(seats/6);
+                
+        }
+
+
+        }
+
+        
+
+        for(let i  = 0;i<bookings.length;i++){
+
+            let sbhours = bookings[i].time.slice(0,2);
+            let sbmins = bookings[i].time.slice(3,5);
+
+            let bhours = Number(sbhours);
+            let bmins = Number(sbmins);
+
+            if(hours < bhours + 1 && hours > bhours - 1 ){
+                if(tables < bookings[i].guests){
+                    flag = false;
+                    break;
+                }
+                    
+            }
+        }
+
+        if(!flag){
+            res.send("NA");
+        }else{
+            const newbooking = new Booking(req.body);
+
+            const saveBooking = await newbooking.save();
+    
+            res.send(saveBooking);
+        }
+
+       
 
     }catch(err){
         res.send(err);

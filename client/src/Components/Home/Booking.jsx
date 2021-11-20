@@ -3,6 +3,8 @@ import './Home.css'
 import Popup from '../login_registeration/Popup'
 import SignIn from "../login_registeration/SignIn";
 import SignUp from "../login_registeration/SignUp";
+import Axios from "axios";
+
 
 const Booking = ()=>{
 
@@ -11,9 +13,13 @@ const Booking = ()=>{
   const [mobile,setMobile] = useState("");
   const [date,setDate] = useState("");
   const [time,setTime] = useState("");
-  const [guest,setGuest] = useState("");
+  const [vdate,setVdate] = useState("");
+  const [vtime,setVtime] = useState("");
+  const [guests,setGuest] = useState("");
+  const [status,setStatus] = useState({});
   const [ltrigger,setltrigger] = useState(false);
   const [rtrigger,setrtrigger] = useState(false);
+ 
 
 
   const onBooking = (event)=>{
@@ -27,55 +33,51 @@ const Booking = ()=>{
     }
     else{
 
-        // const userId = localStorage.getItem("UserId");
+        const userId = localStorage.getItem("UserId");
 
-        // if(!userId){
-        //   setltrigger(true);
-        // }
-        // else{
+        if(!userId){
+          setltrigger(true);
+        }
+        else{
 
-        //   Axios.get(`http://localhost:7000/User/course/get/${userId}/${url.slice(16,url.length)}`).then((result)=>{
-             
-        //       let course;
-              
-        //       course =  result.data.user.courses.map((val)=>{
-                
-        //        if(val.course == `${url.slice(16,url.length)}`){
-        //          return true;
-        //        }
-        //      })
+        Axios.post("http://localhost:7000/Booking/insert",{
+          name:name,
+          email:email,
+          mobile:mobile,
+          user_Id:userId,
+          date:date,
+          time:time,
+          guests:guests
 
-        //      for(let i = 0;i<course.length;i++){
-        //        if(course[i] == true){
-        //          setCourseEnroll(true);
-        //          break;
-        //        }
-        //      }
-
-             
-
-        //     if(!courseEnroll){
-        //       Axios.post("http://localhost:7000/User/course/insert",{
-        //         userId:userId,
-        //         courseId:url.slice(16,url.length)
-        //       }).then((result)=>{
-        //          setCourseEnroll(true);
-        //       }).catch((err)=>{
-        //         console.log(err);
-        //       })
-        //     }
-           
-        //     }).catch((err)=>{
-        //       console.log(err);
-        //     })
-
-
-          
-
+          }).then((result)=>{
+            if(result.data == "NA"){
+              alert("Sorry! Booking full. Book another time slot");
+            }
+            else{
+              alert("Booking successful");
+            }
+            
+          }).catch((err)=>{
+            console.log(err);
+          })
+        }
         }   
     
   }
 
+  const selectData = (event)=>{
+    setGuest(event.target.value);
+  }
+
+  const onStatus = (event)=>{
+    event.preventDefault();
+
+    Axios.get(`http://localhost:7000/Booking/status/${vdate}/${vtime}`).then((result)=>{
+        setStatus(result.data);
+    }).catch((err)=>{
+      console.log(err);
+    })
+  }
 
     return(
         <>
@@ -110,10 +112,25 @@ const Booking = ()=>{
                   <p>
                     Lorem ipsum dolor sit amet, consectetur adipiscing elit. Phasellus nec pretium mi. Curabitur facilisis ornare velit non vulputate. Aliquam metus tortor, auctor id gravida condimentum, viverra quis sem.
                   </p>
-                  <p>
-                    Lorem ipsum dolor sit amet, consectetur adipiscing elit. Phasellus nec pretium mi. Curabitur facilisis ornare velit non vulputate. Aliquam metus tortor, auctor id gravida condimentum, viverra quis sem. Curabitur non nisl nec nisi scelerisque maximus. Aenean consectetur convallis porttitor. Aliquam interdum at lacus non blandit.
-                  </p>
+                  
+                  
                 </div>
+
+                <h3>View Status </h3>
+      <input type = "date" value = {vdate} onChange = {(event)=>{
+        setVdate(event.target.value);
+      }}></input>
+      <br/>
+      <input type = "time" value = {vtime} onChange = {(event)=>{
+        setVtime(event.target.value);
+      }}></input>
+      <br/>
+      <button onClick = {onStatus}>View</button>
+      <br/>
+      seats: {status.seats}
+      <br/>
+      tables: {status.tables}
+
               </div>
             </div>
             <div className="col-lg-5">
@@ -122,6 +139,7 @@ const Booking = ()=>{
                   <div className="control-group">
                     <div className="input-group">
                       <input type="text" className="form-control" placeholder="Name" required="required"  value = {name} 
+                        value = {name}
                         onChange = {(event)=>{
                           setName(event.target.value);
                         }}
@@ -134,6 +152,7 @@ const Booking = ()=>{
                   <div className="control-group">
                     <div className="input-group">
                       <input type="email" className="form-control" placeholder="Email" required="required" 
+                        value = {email}
                         onChange = {(event)=>{
                           setEmail(event.target.value);
                         }}
@@ -146,6 +165,7 @@ const Booking = ()=>{
                   <div className="control-group">
                     <div className="input-group">
                       <input type="text" className="form-control" placeholder="Mobile" required="required" 
+                        value = {mobile}
                         onChange = {(event)=>{
                           setMobile(event.target.value);
                         }}
@@ -158,6 +178,7 @@ const Booking = ()=>{
                   <div className="control-group">
                     <div className="input-group date unstyled" id="date" data-target-input="nearest">
                       <input type="date" className="form-control datetimepicker-input" placeholder="Date" data-target="#date" data-toggle="datetimepicker" style={{textDecoration : 'none'}}
+                      value = {date}
                       onChange = {(event)=>{
                           setDate(event.target.value);
                       }} />
@@ -169,7 +190,7 @@ const Booking = ()=>{
                   <div className="control-group">
                     <div className="input-group time" id="time" data-target-input="nearest">
                       <input type="time" className="form-control datetimepicker-input" placeholder="Time" data-target="#time" data-toggle="datetimepicker" 
-                        onChang = {(event)=>{
+                     value = {time}   onChange = {(event)=>{
                           setTime(event.target.value);
                         }}
                       />
@@ -180,7 +201,7 @@ const Booking = ()=>{
                   </div>
                   <div className="control-group">
                     <div className="input-group">
-                      <select className="custom-select form-control">
+                      <select value = {guests} onChange = {selectData} className="custom-select form-control">
                         <option selected>Guest</option>
                         <option value={1} >Guest</option>
                         <option value={2}>2 Guest</option>

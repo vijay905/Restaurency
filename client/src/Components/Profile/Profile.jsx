@@ -1,6 +1,33 @@
-import React from 'react'
+import React, { useEffect,useState } from 'react'
+import Axios from 'axios'
+import BookingDetails from './BookingDetails';
 
 const Profile = () => {
+
+  const [name,setName] = useState("");
+  const [email,setEmail] = useState("");
+  const [bookings,setBookings] = useState([]);
+  
+
+  useEffect(()=>{
+
+    const userId = localStorage.getItem("UserId");
+
+
+      Axios.get(`http://localhost:7000/User/get/${userId}`).then((result)=>{
+        setName(result.data.name);
+        setEmail(result.data.email);
+      }).catch((err)=>{
+        console.log(err);
+      })
+
+      Axios.get(`http://localhost:7000/Booking/user/get/${userId}`).then((result)=>{
+        setBookings(result.data);
+      }).catch((err)=>{
+        console.log(err);
+      })
+  },[])
+
     return (
         <div>
              <div className="container">
@@ -12,7 +39,7 @@ const Profile = () => {
                 <img src="https://cdn.pixabay.com/photo/2015/10/05/22/37/blank-profile-picture-973460_1280.png" className="rounded-circle" width={150} />
 
                 <div className="mt-3">
-                  <h3>Pranav Shirke</h3>
+                  <h3>{name}</h3>
                   <br />
                   <br />
                   <br />
@@ -52,7 +79,7 @@ const Profile = () => {
                     <h5>Name</h5>
                   </div>
                   <div className="col-mod-9 text-secondary">
-                    Pranav Shirke
+                   {name}
                   </div>
                 </div>
                 <hr />
@@ -61,44 +88,25 @@ const Profile = () => {
                     <h5>Email</h5>
                   </div>
                   <div className="col-mod-9 text-secondary">
-                    pranavshirke@gmail.com
+                    {email}
                   </div>
                 </div>
 
            
               </div>
             </div>
-            <div className="card mb-3 content">
-              <h2 className="m-3">Booking details</h2>
-              <div className="card-body">
-                <div className="row">
-                  <div className="col-md-3">
-                    <h5> Booking id </h5>
-                  </div>
-                  <div className="col-mod-9 text-secondary">
-                    201
-                  </div>
-                </div>
-                <hr/>
-                <div className="row">
-                  <div className="col-md-9">
-                    <h5>Booking Date</h5>
-                  </div>
-                  <div className="col-mod-9 text-secondary">
-                    23-11-2021
-                  </div>
-                </div>
-                <hr/>
-                <div className="row">
-                  <div className="col-md-3">
-                    <h5>Booking Time</h5>
-                  </div>
-                  <div className="col-mod-9 text-secondary">
-                    08:30 pm
-                  </div>
-                </div>
-              </div>
-            </div>
+           
+           {bookings.map((val)=>{
+             return(
+               <>
+               <BookingDetails id ={val._id} date = {val.date.slice(0,10)} time = {val.time} guests = {val.guests}/>
+               </>
+             )
+           })}
+              
+            
+
+
           </div> 
         </div>
       </div>

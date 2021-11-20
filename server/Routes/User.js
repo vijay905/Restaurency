@@ -67,4 +67,20 @@ router.post("/login",async(req,res)=>{
 
 })
 
+
+router.get("/get/:userId",async(req,res)=>{
+        try{
+            const userId = req.params.userId;
+           
+    
+            const user = await User.findOne({_id:userId});
+    
+            res.send(user);
+    
+        }catch(err){
+            res.status(400).send(err)
+        }
+})
+
+
 module.exports = router;
