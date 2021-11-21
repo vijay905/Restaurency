@@ -19,7 +19,7 @@ const Menu = (props) => {
                         <h2>Menu</h2>
                     </div>
                     <div class="col-12">
-                        <a href="">Home</a>
+                    <Link to = "/" > <a href="#" >Home</a></Link>
                         <a href="">Menu</a>
                     </div>
                 </div>

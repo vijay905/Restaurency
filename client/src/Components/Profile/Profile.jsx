@@ -95,10 +95,11 @@ const Profile = () => {
            
               </div>
             </div>
-           
+            <h2 className="m-3">Booking details </h2>
            {bookings.map((val)=>{
              return(
                <>
+               
                <BookingDetails id ={val._id} date = {val.date.slice(0,10)} time = {val.time} guests = {val.guests}/>
                </>
              )

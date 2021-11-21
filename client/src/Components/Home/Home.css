@@ -16,6 +16,10 @@ body {
     color: #454545;
     font-family: 'Nunito', sans-serif;
   }
+
+  .custom_datepicker ::-webkit-calender-picker-indicator{
+    color:white;
+  }
   
   a {
     font-family: 'Nunito', sans-serif;

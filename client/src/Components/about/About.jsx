@@ -22,7 +22,7 @@ const About = ()=>{
           <div className="row align-items-center">
             <div className="col-lg-6">
               <div className="about-img">
-                <img src="img/about.jpg" alt="Image" />
+                <img src="https://images.pexels.com/photos/67468/pexels-photo-67468.jpeg?auto=compress&cs=tinysrgb&dpr=2&h=650&w=940" alt="Image" />
                 <button type="button" className="btn-play" data-toggle="modal" data-src="https://www.youtube.com/embed/GlrxcuEDyF8" data-target="#videoModal">
                   <span />
                 </button>

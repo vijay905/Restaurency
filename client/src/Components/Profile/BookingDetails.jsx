@@ -17,8 +17,7 @@ const BookingDetails = (props)=>{
         <>
 
 <div className="card mb-3 content">
-<button onClick = {CancelBooking}>Cancel</button>
-              <h2 className="m-3">Booking details </h2>
+              
               
               <div className="card-body">
                 <div className="row">
@@ -54,6 +53,12 @@ const BookingDetails = (props)=>{
                   </div>
                   <div className="col-mod-9 text-secondary">
                     {props.guests}
+                  </div>
+                  <hr />
+                  <br />
+        
+                  <div>
+                  <button className="btn btn-danger" onClick = {CancelBooking}>Cancel</button>
                   </div>
                 </div>
               </div>

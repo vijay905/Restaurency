@@ -4,6 +4,7 @@ import Popup from '../login_registeration/Popup'
 import SignIn from "../login_registeration/SignIn";
 import SignUp from "../login_registeration/SignUp";
 import Axios from "axios";
+import { Link } from "react-router-dom";
 
 
 const Booking = ()=>{
@@ -89,7 +90,7 @@ const Booking = ()=>{
                         <h2>Booking Table</h2>
                     </div>
                     <div class="col-12">
-                        <a href="">Home</a>
+                    <Link to = "/"> <a href="#">Home</a></Link>
                         <a href="">Booking</a>
                     </div>
                 </div>
@@ -116,20 +117,28 @@ const Booking = ()=>{
                   
                 </div>
 
-                <h3>View Status </h3>
-      <input type = "date" value = {vdate} onChange = {(event)=>{
+
+           <div className="row">
+             <div className="col-5">
+             <h2 className="h4 mb-3">View Status </h2>
+      <input className="form-control" type = "date" value = {vdate} onChange = {(event)=>{
         setVdate(event.target.value);
       }}></input>
       <br/>
-      <input type = "time" value = {vtime} onChange = {(event)=>{
+      <input className="form-control" type = "time" value = {vtime} onChange = {(event)=>{
         setVtime(event.target.value);
       }}></input>
       <br/>
-      <button onClick = {onStatus}>View</button>
+      <button className="btn btn-secondary mb-3" onClick = {onStatus}>View</button>
       <br/>
-      seats: {status.seats}
+      <div className="h5">
+      Seats   : {status.seats}
       <br/>
-      tables: {status.tables}
+
+      Tables : {status.tables}
+      </div>
+             </div>
+           </div>
 
               </div>
             </div>
@@ -145,7 +154,7 @@ const Booking = ()=>{
                         }}
                       />
                       <div className="input-group-append">
-                        <div className="input-group-text"><i className="far fa-user" /></div>
+                        <div className="input-group-text"><i className="far fa-user text-dark" /></div>
                       </div>
                     </div>
                   </div>
@@ -158,7 +167,7 @@ const Booking = ()=>{
                         }}
                       />
                       <div className="input-group-append">
-                        <div className="input-group-text"><i className="far fa-envelope" /></div>
+                        <div className="input-group-text"><i className="far fa-envelope text-dark" /></div>
                       </div>
                     </div>
                   </div>
@@ -171,19 +180,20 @@ const Booking = ()=>{
                         }}
                       />
                       <div className="input-group-append">
-                        <div className="input-group-text"><i className="fa fa-mobile-alt" /></div>
+                        <div className="input-group-text"><i className="fa fa-mobile-alt text-dark" /></div>
                       </div>
                     </div>
                   </div>
                   <div className="control-group">
                     <div className="input-group date unstyled" id="date" data-target-input="nearest">
-                      <input type="date" className="form-control datetimepicker-input" placeholder="Date" data-target="#date" data-toggle="datetimepicker" style={{textDecoration : 'none'}}
+                      <input type="date" className="form-control custom_datepicker" placeholder="Date" data-target="#date" data-toggle="datetimepicker" style={{}}
                       value = {date}
                       onChange = {(event)=>{
                           setDate(event.target.value);
                       }} />
                       <div className="input-group-append" data-target="#date" data-toggle="datetimepicker">
-                        <div className="input-group-text"><i className="far fa-calendar-alt" /></div>
+                        <div className="input-group-text"></div>
+                        {/* <div className="input-group-text"><i className="far fa-calendar-alt" /></div> */}
                       </div>
                     </div>
                   </div>
@@ -195,24 +205,25 @@ const Booking = ()=>{
                         }}
                       />
                       <div className="input-group-append" data-target="#time" data-toggle="datetimepicker">
-                        <div className="input-group-text"><i className="far fa-clock" /></div>
+                        {/* <div className="input-group-text"><i className="far fa-clock" /></div> */}
+                        <div className="input-group-text text-white"></div>
                       </div>
                     </div>
                   </div>
                   <div className="control-group">
-                    <div className="input-group">
+                    <div className="">
                       <select value = {guests} onChange = {selectData} className="custom-select form-control">
-                        <option selected>Guest</option>
-                        <option value={1} >Guest</option>
-                        <option value={2}>2 Guest</option>
-                        <option value={3}>3 Guest</option>
-                        <option value={4}>4 Guest</option>
-                        <option value={5}>5 Guest</option>
-                        <option value={6}>6 Guest</option>
-                        <option value={7}>7 Guest</option>
-                        <option value={8}>8 Guest</option>
-                        <option value={9}>9 Guest</option>
-                        <option value={10}>10 Guest</option>
+                        <option className="text-dark" selected>Guest</option>
+                        <option className="text-dark" value={1}>1 Guest</option>
+                        <option className="text-dark" value={2}>2 Guest</option>
+                        <option className="text-dark" value={3}>3 Guest</option>
+                        <option className="text-dark" value={4}>4 Guest</option>
+                        <option className="text-dark" value={5}>5 Guest</option>
+                        <option className="text-dark" value={6}>6 Guest</option>
+                        <option className="text-dark" value={7}>7 Guest</option>
+                        <option className="text-dark" value={8}>8 Guest</option>
+                        <option className="text-dark" value={9}>9 Guest</option>
+                        <option className="text-dark" value={10}>10 Guest</option>
                       </select>
                       <div className="input-group-append">
                         <div className="input-group-text"><i className="fa fa-chevron-down" /></div>
