@@ -133,7 +133,7 @@ router.post("/insert",async (req,res)=>{
             let bmins = Number(sbmins);
 
             if(hours < bhours + 1 && hours > bhours - 1 ){
-                if(tables < bookings[i].guests){
+                if(tables * 6 < bookings[i].guests){
                     flag = false;
                     break;
                 }
