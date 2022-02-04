@@ -5,6 +5,7 @@ body {
     color: #757575;
     background: #ffffff;
     font-family: 'open sans', sans-serif;
+    
   }
   
   h1,
@@ -37,9 +38,9 @@ body {
   }
   
   .btn.custom-btn {
-    padding: 12px 25px;
+    padding: 0.75rem 1.56rem;
     font-family: 'Nunito', sans-serif;
-    font-size: 16px;
+    font-size: 1rem;
     font-weight: 600;
     color: #ffffff;
     background: #fbaf32;
@@ -60,7 +61,7 @@ body {
   }
   
   .container-fluid {
-    max-width: 1366px;
+    max-width: 85.375rem;
   }
   
   .back-to-top {
@@ -114,7 +115,7 @@ body {
   .navbar .navbar-brand {
     margin: 0;
     color: #fbaf32;
-    font-size: 45px;
+    font-size: 2.813rem;
     line-height: 0px;
     font-weight: 700;
     font-family: 'Nunito', sans-serif;
@@ -122,6 +123,10 @@ body {
     
   }
   
+  .navbar-nav .ml-auto Link{
+    position: absolute;
+  }
+
   .navbar .navbar-brand span {
     color: #719a0a;
   }
@@ -136,7 +141,7 @@ body {
   
   .navbar .navbar-brand img {
     max-width: 100%;
-    max-height: 40px;
+    max-height: 2.5rem;
   }
   
   .navbar .dropdown-menu {
@@ -150,13 +155,13 @@ body {
     .navbar {
         position: absolute;
         width: 100%;
-        padding: 30px 60px;
+        padding: 1.875rem 3.75rem;
         background: transparent !important;
         z-index: 9;
     }
     
     .navbar.nav-sticky {
-        padding: 10px 60px;
+        padding: 0.625rem 3.75rem;
         background: #ffffff !important;
     }
     
@@ -170,10 +175,10 @@ body {
   
     .navbar-light .navbar-nav .nav-link,
     .navbar-light .navbar-nav .nav-link:focus {
-        padding: 10px 10px 8px 10px;
+        padding:0.625rem 0.625rem 0.5rem 0.625rem;
         font-family: 'Nunito', sans-serif;
         color: #ffffff;
-        font-size: 18px;
+        font-size: 1.125rem;
         font-weight: 600;
     }
     
@@ -195,7 +200,7 @@ body {
   
   @media (max-width: 991.98px) {   
     .navbar {
-        padding: 15px;
+        padding: 0.938rem;
         background: #ffffff !important;
     }
     
@@ -204,11 +209,11 @@ body {
     }
     
     .navbar .navbar-nav {
-        margin-top: 15px;
+        margin-top: 0.938rem;
     }
     
     .navbar a.nav-link {
-        padding: 5px;
+        padding: 0.313rem;
     }
     
     .navbar .dropdown-menu {
@@ -224,7 +229,7 @@ body {
     position: relative;
     width: 100%;
     height: 100vh;
-    min-height: 400px;
+    min-height: 25rem;
     background: #ffffff;
   }
   
@@ -281,9 +286,9 @@ body {
   .carousel .carousel-text h1 {
     text-align: center;
     color: #ffffff;
-    font-size: 60px;
+    font-size: 3.75rem;
     font-weight: 700;
-    margin-bottom: 30px;
+    margin-bottom: 1.875rem;
   }
   
   .carousel .carousel-text h1 span {

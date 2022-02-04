@@ -24,6 +24,8 @@ const SignUp = (props) => {
       alert("Registeration Successful");
       props.setregister(false);
       props.setlogin(true);
+    }).catch((err)=>{
+      console.log(err);
     })
 
   }

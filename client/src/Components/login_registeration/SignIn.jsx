@@ -44,7 +44,7 @@ const SignIn = (props) => {
                     <Form>
                         <Form.Group as={Row} className="mb-3" controlId="formHorizontalEmail">
                             <Col>
-                                <Form.Control type="email" placeholder="Email" style = {{maxWidth: "23vw"}} value = {email} onChange = {(event)=>{
+                                <Form.Control type="email" placeholder="Email" style = {{maxWidth: "50%"}} value = {email} onChange = {(event)=>{
                                     setEmail(event.target.value);
                                 }}/>
                             </Col>
@@ -52,7 +52,7 @@ const SignIn = (props) => {
 
                         <Form.Group as={Row} className="mb-3" controlId="formHorizontalPassword">
                             <Col>
-                                <Form.Control type="password" placeholder="Password"  style = {{maxWidth: "23vw"}}  value = {password} onChange = {(event)=>{
+                                <Form.Control type="password" placeholder="Password"  style = {{maxWidth: "50%"}}  value = {password} onChange = {(event)=>{
                                     setPassword(event.target.value);
                                 }}/>
                             </Col>

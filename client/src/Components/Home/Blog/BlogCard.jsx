@@ -8,7 +8,7 @@ const BlogCard = (props)=>{
         <>
          <div className="col-md-6">
               <div className="blog-item">
-                <div className="blog-img" style = {{width:"540px",height:"360px"}}>
+                <div className="blog-img" style = {{maxWidth:"540px",maxHeight:"360px"}}>
                   <img src={props.img}  alt="Blog" />
                 </div>
                 <div className="blog-content">
