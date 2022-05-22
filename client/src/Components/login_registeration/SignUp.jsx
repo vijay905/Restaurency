@@ -33,36 +33,36 @@ const SignUp = (props) => {
   return (
     <>
 
-      <Container className="justify-content-md-center mt-3" style={{ width: '700px' }}>
+      <Container className="justify-content-md-center mt-3" >
        
         <Row>
           <Form>
-            <Form.Group as={Row} className="mb-3" controlId="formHorizontalName">
+            <Form.Group as={Row} className="mb-3 sup" style={{maxWidth:"120%"}} controlId="formHorizontalName">
               <Col>
-                <Form.Control type="text" placeholder="Name" style = {{maxWidth: "23vw"}} value = {name} onChange = {(event)=>{
+                <Form.Control class = "fcontrol" type="text" placeholder="Name"  value = {name} onChange = {(event)=>{
                                     setName(event.target.value);
                                 }}/>
               </Col>
             </Form.Group>
-            <Form.Group as={Row} className="mb-3" controlId="formHorizontalEmail">
+            <Form.Group as={Row} className="mb-3 sup" style={{maxWidth:"120%"}} controlId="formHorizontalEmail">
               <Col>
-                <Form.Control type="email" placeholder="Email" style = {{maxWidth: "23vw"}} value = {email} onChange = {(event)=>{
+                <Form.Control  type="email" placeholder="Email"  value = {email} onChange = {(event)=>{
                                     setEmail(event.target.value);
                                 }}/>
               </Col>
             </Form.Group>
 
-            <Form.Group as={Row} className="mb-3" controlId="formHorizontalPassword">
+            <Form.Group as={Row} className="mb-3 sup" style={{maxWidth:"120%"}} controlId="formHorizontalPassword">
               <Col>
-                <Form.Control type="password" placeholder="Password" style = {{maxWidth: "23vw"}} value = {password} onChange = {(event)=>{
+                <Form.Control type="password" placeholder="Password"  value = {password} onChange = {(event)=>{
                                     setPassword(event.target.value);
                                 }}/>
               </Col>
             </Form.Group>
 
-            <Form.Group as={Row} className="mb-3" controlId="formHorizontalcPassword">
+            <Form.Group as={Row} className="mb-3 sup" style={{maxWidth:"120%"}} controlId="formHorizontalcPassword">
               <Col>
-                <Form.Control type="password" placeholder="Confirm Password" style = {{maxWidth: "23vw"}} value = {conpass} onChange = {(event)=>{
+                <Form.Control type="password" placeholder="Confirm Password"  value = {conpass} onChange = {(event)=>{
                                     setConPass(event.target.value);
                                 }}/>
               </Col>
