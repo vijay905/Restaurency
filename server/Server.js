@@ -46,6 +46,7 @@ app.use('/Blog',require('./Routes/Blog'))
 app.use('/Chef',require('./Routes/Chef'))
 app.use('/Menu',require('./Routes/Menu'))
 app.use('/User',require('./Routes/User'))
+app.use('/Mail',require('./Routes/Mail'))
 // app.use('/Static',require('./Routes/Static'))
 
 app.listen(7000,()=>{

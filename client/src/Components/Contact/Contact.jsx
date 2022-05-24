@@ -1,7 +1,31 @@
-import React from "react";
+import React, { useState } from "react";
 import { Link } from "react-router-dom";
+import Axios from "axios";
 
 const Contact = ()=>{
+
+  const [name,setName] = useState("");
+  const [email,setEmail] = useState("");
+  const [subject,setSubject] = useState("");
+  const [message,setMessage] = useState("");
+
+  const onSend = (event)=>{
+    event.preventDefault();
+
+    Axios.post("https://formsubmit.co/bed91892fd3995e1222bb7aae21ad6b8",{
+      name:name,
+      email:email,
+      subject:subject,
+      message:message
+    }).then((result)=>{
+      alert("message sent successfully")
+    }).catch((err)=>{
+      console.log(err);
+    })
+
+  }
+
+
     return(
         <>
 
@@ -86,25 +110,41 @@ const Contact = ()=>{
             </div>
             <div className="col-md-6">
               <div id="success" />
-              <form name="sentMessage" id="contactForm" noValidate="novalidate">
+              <form name="sentMessage" id="contactForm" noValidate="novalidate" action = "https://formsubmit.co/el/dijobo" method = "POST">
                 <div className="control-group">
-                  <input type="text" className="form-control" id="name" placeholder="Your Name" required="required" data-validation-required-message="Please enter your name" />
+                  <input type="text" className="form-control" id="name" value = {name}  onChange={(event)=>{
+                    setName(event.target.value);
+                  }} placeholder="Your Name" required="required" data-validation-required-message="Please enter your name" />
                   <p className="help-block text-danger" />
                 </div>
                 <div className="control-group">
-                  <input type="email" className="form-control" id="email" placeholder="Your Email" required="required" data-validation-required-message="Please enter your email" />
+                  <input type="email" className="form-control"
+                  value = {email}  onChange={(event)=>{
+                    setEmail(event.target.value);
+                  }}  
+                   id="email" placeholder="Your Email" required="required" data-validation-required-message="Please enter your email" />
                   <p className="help-block text-danger" />
                 </div>
                 <div className="control-group">
-                  <input type="text" className="form-control" id="subject" placeholder="Subject" required="required" data-validation-required-message="Please enter a subject" />
+                  <input type="text" className="form-control" 
+                  value = {subject}  onChange={(event)=>{
+                    setSubject(event.target.value);
+                  }}
+                  id="subject" placeholder="Subject" required="required" data-validation-required-message="Please enter a subject" />
                   <p className="help-block text-danger" />
                 </div>
                 <div className="control-group">
-                  <textarea className="form-control" id="message" placeholder="Message" required="required" data-validation-required-message="Please enter your message" defaultValue={""} />
+                  <textarea className="form-control" id="message" 
+
+                  value = {message}  onChange={(event)=>{
+                    setMessage(event.target.value);
+                  }}
+
+                   placeholder="Message" required="required" data-validation-required-message="Please enter your message" defaultValue={""} />
                   <p className="help-block text-danger" />
                 </div>
                 <div>
-                  <button className="btn custom-btn" type="submit" id="sendMessageButton">Send Message</button>
+                  <button className="btn custom-btn" type="submit" id="sendMessageButton"  >Send Message</button>
                 </div>
               </form>
             </div>
