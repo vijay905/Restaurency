@@ -49,7 +49,6 @@ router.post("/login",async(req,res)=>{
     if(dbuser){
         const isMatch = await bcrypt.compare(password,dbuser.password);
         token = await dbuser.generateAuthToken();
-        
         if(isMatch){
             res.status(200).send({dbuser,token});    
         }
@@ -71,8 +70,6 @@ router.post("/login",async(req,res)=>{
 router.get("/get/:userId",async(req,res)=>{
         try{
             const userId = req.params.userId;
-           
-    
             const user = await User.findOne({_id:userId});
     
             res.send(user);

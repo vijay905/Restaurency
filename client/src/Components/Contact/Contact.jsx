@@ -12,7 +12,7 @@ const Contact = ()=>{
   const onSend = (event)=>{
     event.preventDefault();
 
-    Axios.post("https://formsubmit.co/bed91892fd3995e1222bb7aae21ad6b8",{
+    Axios.post("https://formsubmit.co/el/yewuwu",{
       name:name,
       email:email,
       subject:subject,
@@ -110,7 +110,7 @@ const Contact = ()=>{
             </div>
             <div className="col-md-6">
               <div id="success" />
-              <form name="sentMessage" id="contactForm" noValidate="novalidate" action = "https://formsubmit.co/el/dijobo" method = "POST">
+              <form name="sentMessage" id="contactForm" noValidate="novalidate" action = "https://formsubmit.co/el/yewuwu" method = "POST" >
                 <div className="control-group">
                   <input type="text" className="form-control" id="name" value = {name}  onChange={(event)=>{
                     setName(event.target.value);
@@ -144,7 +144,7 @@ const Contact = ()=>{
                   <p className="help-block text-danger" />
                 </div>
                 <div>
-                  <button className="btn custom-btn" type="submit" id="sendMessageButton"  >Send Message</button>
+                  <button className="btn custom-btn"  type="submit" id="sendMessageButton"   >Send Message</button>
                 </div>
               </form>
             </div>
