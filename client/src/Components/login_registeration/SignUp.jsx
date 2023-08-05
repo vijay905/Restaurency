@@ -14,7 +14,7 @@ const SignUp = (props) => {
   const onRegister = (event)=>{
     event.preventDefault();
 
-    Axios.post("http://localhost:7000/User/register",{
+    Axios.post("https://restaurency-app-1meh.onrender.com/User/register",{
       name:name,
       email:email,
       password:password,

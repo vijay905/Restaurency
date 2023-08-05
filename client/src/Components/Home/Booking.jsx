@@ -41,7 +41,7 @@ const Booking = ()=>{
         }
         else{
 
-        Axios.post("http://localhost:7000/Booking/insert",{
+        Axios.post("https://restaurency-app-1meh.onrender.com/Booking/insert",{
           name:name,
           email:email,
           mobile:mobile,
@@ -73,13 +73,13 @@ const Booking = ()=>{
   const onStatus = (event)=>{
     event.preventDefault();
 
-    Axios.get(`http://localhost:7000/Booking/status/${vdate}/${vtime}`).then((result)=>{
+    Axios.get(`https://restaurency-app-1meh.onrender.com/Booking/status/${vdate}/${vtime}`).then((result)=>{
         setStatus(result.data);
     }).catch((err)=>{
       console.log(err);
     })
   }
-
+  
     return(
         <>
 
@@ -148,7 +148,7 @@ const Booking = ()=>{
                   <div className="control-group">
                     <div className="input-group">
                       <input type="text" className="form-control" placeholder="Name" required="required"  value = {name} 
-                        value = {name}
+                        // value = {name}
                         onChange = {(event)=>{
                           setName(event.target.value);
                         }}
