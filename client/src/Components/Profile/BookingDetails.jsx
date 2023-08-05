@@ -6,7 +6,7 @@ const BookingDetails = (props)=>{
     const CancelBooking = (event)=>{
         event.preventDefault();
         alert("Booking will be cancelled");
-        Axios.delete(`http://localhost:7000/Booking/delete/${props.id}`).then((result)=>{
+        Axios.delete(`https://restaurency-app-1meh.onrender.com/Booking/delete/${props.id}`).then((result)=>{
             alert("Booking Canceled");
             window.location.reload(false);
         })

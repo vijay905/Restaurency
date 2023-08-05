@@ -8,7 +8,7 @@ const Item = (props)=>{
   const [img,setImg] = useState(["a"]);
     
     useEffect(()=>{
-        Axios.get("http://localhost:7000/Menu/get").then((result)=>{
+        Axios.get("https://restaurency-app-1meh.onrender.com/Menu/get").then((result)=>{
             setMenuData(result.data);
         }).catch((err)=>{
             console.log(err);

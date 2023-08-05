@@ -14,14 +14,14 @@ const Profile = () => {
     const userId = localStorage.getItem("UserId");
 
 
-      Axios.get(`http://localhost:7000/User/get/${userId}`).then((result)=>{
+      Axios.get(`https://restaurency-app-1meh.onrender.com/User/get/${userId}`).then((result)=>{
         setName(result.data.name);
         setEmail(result.data.email);
       }).catch((err)=>{
         console.log(err);
       })
 
-      Axios.get(`http://localhost:7000/Booking/user/get/${userId}`).then((result)=>{
+      Axios.get(`https://restaurency-app-1meh.onrender.com/Booking/user/get/${userId}`).then((result)=>{
         setBookings(result.data);
       }).catch((err)=>{
         console.log(err);

@@ -10,7 +10,7 @@ const Team = () => {
     const [chefData,setChefData] = useState([]);
 
   useEffect(() => {
-    Axios.get("http://localhost:7000/Chef/get").then((result)=>{
+    Axios.get("https://restaurency-app-1meh.onrender.com/Chef/get").then((result)=>{
       setChefData(result.data);
     }).catch((err)=>{
       console.log(err);

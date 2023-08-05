@@ -9,7 +9,7 @@ const Blog = ()=>{
 
   useEffect(()=>{
 
-    Axios.get("http://localhost:7000/Blog/get").then((result)=>{
+    Axios.get("https://restaurency-app-1meh.onrender.com/Blog/get").then((result)=>{
         setBlogData(result.data);
         console.log(result.data);
     }).catch((err)=>{
